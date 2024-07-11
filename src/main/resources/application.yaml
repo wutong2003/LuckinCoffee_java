@@ -1,0 +1,34 @@
+server:
+  # 项目端口
+  port: 8081
+spring:
+  thymeleaf:
+    # 模板编码
+    encoding: 'UTF-8'
+    # 在构建 URL 时添加到视图名称前的前缀（默认值： classpath:/templates/ ）
+    prefix: 'classpath:/static/'
+  application:
+    # 项目名称
+    name: 'chapter03'
+  datasource:
+    druid:
+      # 配置数据库链接信息
+      driver-class-name: 'com.mysql.cj.jdbc.Driver'
+      url: 'jdbc:mysql://localhost:3306/luckincoffee'
+      username: 'root'
+      password: '123456'
+
+mybatis-plus:
+  # 指定mybatis-plus的实体目录
+  type-aliases-package: 'top.shop.www.pojo'
+  # 指定mybatis-plus的mapper文件
+  mapper-locations: 'classpath:top/shop/www/mapper/*.xml'
+  configuration:
+    # 开启驼峰命名
+    map-underscore-to-camel-case: true
+    # 是否开启二级缓存
+    cache-enabled: false
+  global-config:
+    db-config:
+      # id为雪花算法生成
+      id-type: assign_id
